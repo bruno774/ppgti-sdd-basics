@@ -27,3 +27,28 @@ O modelo usado foi o gpt-5.6 terra, nos testes com modelo mais simples, foi usad
 Criado o repositório público em github.com/ppgti-sdd-basics, depois a branch "feature/setup-inicial" e definição de mensagem que orienta os commits futuros.
 
 ## Etapa 6 (relatório final)
+
+Repo: https://github.com/bruno774/ppgti-sdd-basics/ (com todos os artefatos solicitados, inclusive o projeto)
+
+No arquivo AGENTS.md, crítico nas definições do projeto, uma trecho relevante está copiado abaixo, definindo o papel dos agentes de IA na interpretação e nos limites em relação ao projeto:
+
+    ## Orientacoes para agentes
+
+    Antes de editar, localizar a camada que controla diretamente o comportamento solicitado e formular uma hipotese verificavel. Fazer a menor alteracao coerente com as convencoes acima. Depois da primeira edicao, executar imediatamente o teste ou comando de validacao mais especifico disponivel.
+
+    Nao inventar dependencias, formatos de API ou garantias de privacidade. Quando uma decisao de produto estiver indefinida, preservar os dados, sinalizar a incerteza e pedir revisao do operador. Nunca fazer commit ou reverter alteracoes de outros contribuidores sem solicitacao explicita.
+
+Trecho do CLAUDE.md:
+
+    # CLAUDE.md
+
+    ## Papel do agente Claude
+
+    Atue como agente de implementacao para uma ferramenta de anonimização de documentos juridicos e administrativos em PDF ou TXT. Siga primeiro as regras de `AGENTS.md`; este arquivo acrescenta instrucoes especificas para execucoes feitas por Claude.
+
+A relevância está na atuação de hierarquia entre os arquivos, onde o AGENTS.md assume o papel descrito principal e o CLAUDE.md com suas instruções específicas, uma estratégia de ampliação de compatibilidade entre assistentes de IA atuais, mantendo o padrão aberto mais aceito com o primeiro arquivo.
+
+Pull request aberto em https://github.com/bruno774/ppgti-sdd-basics/pull/1
+
+MCP disponível em .mcp.json
+
