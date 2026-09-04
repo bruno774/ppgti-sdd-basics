@@ -4,6 +4,8 @@
 - **Data:** 2026-08-24
 - **Decisores:** equipe do projeto
 
+> **Nota:** o escopo de entrada e o formato do marcador de pseudo-anonimização descritos aqui foram ampliados/alterados pela [ADR 0002](0002-ampliar-escopo-docx-extensao-auditoria.md) (DOCX, texto/clipboard, extensão de navegador, marcadores `prefixo+indice` e auditoria).
+
 ## Contexto
 
 O sistema precisa processar documentos jurídicos e administrativos em PDF ou TXT, detectar entidades pessoais e sensíveis, permitir a revisão e a escolha dos tipos pelo operador e gerar texto anonimizado para ferramentas externas.

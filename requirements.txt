@@ -1,5 +1,6 @@
 Django
 pydantic
 pypdf
+python-docx
 spacy
 pytest
