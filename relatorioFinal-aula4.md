@@ -1,16 +1,19 @@
 # Relatório Final - Aula 4
 
+Autor: Bruno dos Santos F. Silva
+Data: 06/09/2026
+
 ## Escopo da atividade
 
 A atividade desta aula teve como foco a consolidação do fluxo de Spec-Driven Development (SDD) aplicado a um problema real e independente do conteúdo visto em sala de aula: a construção de uma solução para pseudo-anonimização de documentos jurídicos e administrativos, com entrada em PDF, DOCX, texto direto e captura via extensão de navegador, e saída em texto com marcadores sem dados pessoais expostos.
 
 Os princípios centrais do SDD foram aplicados para estruturar a análise e a mudança de escopo antes da implementação: (1) definir claramente o problema e os limites do produto; (2) escrever requisitos e cenários de uso antes do código; (3) separar especificação, design e tarefas executáveis; (4) validar comportamento com critérios observáveis e testes; (5) manter documentação e implementação coerentes; (6) preservar privacidade e segurança em todo o ciclo de desenvolvimento.
 
-No contexto do projeto, a atividade não ficou restrita apenas ao que foi discutido em aula. O escopo foi ampliado para um domínio real e relevante de negócio, com especificações que cobrem entrada multicanal, seleção de categorias pelo operador, detecção, pseudo-anonimização, auditoria e integração com extensão de navegador. Esse ajuste foi necessário para alinhar o repositório a um cenário de software aplicável em produção e com requisitos de confidencialidade.
+No contexto do projeto, a atividade não ficou restrita apenas ao que foi discutido em aula. O escopo foi ampliado para um domínio real e relevante de negócio, com especificações que cobrem entrada multicanal, seleção de categorias de anonimizacao pelo operador, detecção, pseudo-anonimização, auditoria e integração com extensão de navegador. Esse ajuste foi necessário para alinhar o repositório a um cenário de software aplicável em produção e com requisitos de confidencialidade.
 
 ## Etapa 1
 
-Entregável da etapa 1: o escopo detalhado das funcionalidades adicionais escolhidas para especificação está documentado em docs/escopo.md.
+O escopo detalhado das funcionalidades adicionais escolhidas para especificação no projeto está disponível em [/docs/escopo.md].
 
 Esse documento aprofunda duas funcionalidades-chave do projeto: a seleção de categorias pelo operador antes da anonimização e a substituição por marcadores de pseudo-anonimização. Ele também articula a justificativa para tratar essas capacidades como especificações de negócio e não como simples implementações pontuais.
 
@@ -21,14 +24,14 @@ A etapa 2 focou na construção das especificações no projeto com OpenSpec, co
 As especificações criadas e estruturadas no repositório estão localizadas em:
 
 - openspec/changes/
-  - selecao-categorias-operador/
-  - entrada-multicanal/
-  - deteccao-entidades/
-  - mascaramento-pseudonimizacao/
-  - extensao-navegador/
-  - auditoria-operacoes/
+  - selecao-categorias-operador/ (1)
+  - entrada-multicanal/ (2)
+  - deteccao-entidades/ (3)
+  - mascaramento-pseudonimizacao/ (4)
+  - extensao-navegador/ (5)
+  - auditoria-operacoes/ (6)
 
-Cada mudança contém a proposta, o design e a definição das tarefas, permitindo separar as capacidades em artefatos de escopo menores e verificáveis.
+Cada mudança contém a proposta, o design e a definição das tarefas, permitindo separar as capacidades em artefatos de escopo menores e verificáveis. Não achei necessário alterar os planos propostos para 3 funcionalidades iniciais em análise (1, 2, 4), todas apresentavam propostas mais completas do que pensava inicialmente para o caso, em especial quanto aos testes de validação e auditoria.
 
 A adoção do OpenSpec foi motivada por três fatores principais:
 
@@ -65,4 +68,8 @@ Em termos práticos, esse checkpoint exige apresentação de um relatório de co
 
 ## Etapa 5
 
+Nao realizado a tempo
+
 ## Etapa 6
+
+Projeto publicado em https://github.com/bruno774/ppgti-sdd-basics (repositorio publico) como continuacao do projeto iniciado na aula 2.
