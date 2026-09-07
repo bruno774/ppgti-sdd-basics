@@ -171,4 +171,10 @@ Quando os comandos ou dependencias ainda nao existirem, registrar essa limitacao
 
 Antes de editar, localizar a especificacao ou requisito que controla o comportamento solicitado (ver [docs/especificacoes/](docs/especificacoes/README.md) e [docs/requisitos/](docs/requisitos/requisitos-funcionais.md)) e formular uma hipotese verificavel. Fazer a menor alteracao coerente com as convencoes acima. Depois da primeira edicao, executar imediatamente o teste ou comando de validacao mais especifico disponivel.
 
+### Checkpoint humano obrigatorio
+
+Antes de transitar da fase de planejamento para a fase de implementacao, o agente deve apresentar um relatorio de conformidade ao desenvolvedor. Esse relatorio deve incluir: (1) alinhamento com requisitos e especificacoes aprovadas; (2) rastreio do escopo e do objetivo da alteracao; (3) riscos, dependencias e impactos esperados; (4) resumo do diff estrutural proposto; (5) evidencias de validacao ou testes previstos; e (6) incertezas que dependem de decisao humana.
+
+A execucao da implementacao deve permanecer bloqueada ate que o desenvolvedor confirme explicitamente a liberacao do fluxo. O agente nao deve iniciar a escrita de codigo ou a execucao de tarefas de implementacao sem essa aprovacao. Esse checkpoint e parte do contrato de governanca do projeto para reduzir riscos de escopo, de privacidade e de divergencia entre documentacao e codigo.
+
 Nao inventar dependencias, formatos de API ou garantias de privacidade. Quando uma decisao de produto estiver indefinida, preservar os dados, sinalizar a incerteza e pedir revisao do operador. Nunca fazer commit ou reverter alteracoes de outros contribuidores sem solicitacao explicita.

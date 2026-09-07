@@ -16,6 +16,8 @@ Atue como agente de implementacao para uma ferramenta de pseudo-anonimização d
 
 - Ler [AGENTS.md](AGENTS.md) antes de alterar codigo.
 - Identificar a especificacao SDD relevante em [docs/especificacoes/](docs/especificacoes/README.md) (entrada multicanal, deteccao, mascaramento, extensao de navegador ou auditoria) antes de implementar; atualizar a especificacao se o comportamento pedido divergir do que esta documentado.
+- Antes de transitar de planejamento para implementacao, elaborar e apresentar ao desenvolvedor um relatorio de conformidade incluindo escopo, requisitos atendidos, riscos, dependencias, diff estrutural, validacao prevista e incertezas pendentes.
+- A implementacao deve permanecer bloqueada ate que o desenvolvedor confirme explicitamente a liberacao do fluxo. Sem essa confirmacao, o agente nao deve iniciar a escrita de codigo ou a execucao de tarefas de implementacao.
 - Inspecionar a implementacao e os testes proximos ao comportamento solicitado.
 - Antes de mascarar, representar deteccoes com tipo canonico, offsets, confianca e identificador (ver [docs/requisitos/catalogo-entidades.md](docs/requisitos/catalogo-entidades.md)).
 - Separar deteccao automatica da aprovacao ou rejeicao feita pelo operador.

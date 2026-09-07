@@ -57,6 +57,12 @@ As falhas encontradas aparentemente estavam relacionadas ao modelo mais simples 
 
 ## Etapa 4
 
+A transição de planejamento para implementação deve ser bloqueada por um checkpoint humano obrigatório. Essa regra foi incorporada ao contrato de governança do projeto, em [AGENTS.md](AGENTS.md) e [CLAUDE.md](CLAUDE.md), como garantia de controle antes do início da execução real.
+
+A justificativa central é que a etapa de planejamento define escopo, requisitos, riscos e decisões de arquitetura, mas a implementação pode introduzir mudanças de alto impacto mesmo quando o plano parece estável. O checkpoint humano atua como ponto de validação antes da transição, reduzindo risco de divergência entre documentação, código e intenção do produto.
+
+Em termos práticos, esse checkpoint exige apresentação de um relatório de conformidade com escopo, requisitos atendidos, riscos, dependências, diff estrutural e incertezas pendentes, além de confirmação explícita do desenvolvedor antes do avanço para a execução. Essa disciplina torna o processo mais previsível, auditável e coerente com a abordagem SDD adotada pelo projeto.
+
 ## Etapa 5
 
 ## Etapa 6
