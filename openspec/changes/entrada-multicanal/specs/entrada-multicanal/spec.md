@@ -19,6 +19,17 @@ O sistema SHALL extrair o texto de um PDF pesquisável válido, preservando par�
 - **WHEN** um PDF protegido por senha é submetido sem credencial
 - **THEN** o sistema retorna um erro acionável, sem expor detalhes internos de parsing
 
+### Requirement: Validacao de formato e conteudo potencialmente injetado
+O sistema SHALL validar a assinatura de arquivos PDF existentes antes da extração e SHALL interromper o processamento quando o texto extraído contiver padrões de instruções potencialmente injetadas, emitindo apenas um alerta sem reproduzir o conteúdo detectado.
+
+#### Scenario: Arquivo com formato incompatível
+- **WHEN** um arquivo com extensão `.pdf` não possuir a assinatura PDF esperada
+- **THEN** o sistema rejeita a entrada antes da extração e informa que o formato não é compatível
+
+#### Scenario: Conteúdo com prompt injection
+- **WHEN** o texto extraído contiver uma instrução potencialmente injetada
+- **THEN** o sistema alerta o operador, interrompe o processamento e não reproduz o trecho detectado na mensagem de erro
+
 ### Requirement: Extração de texto de DOCX
 O sistema SHALL extrair o texto de um DOCX válido, preservando parágrafos, e SHALL rejeitar arquivos DOCX corrompidos ou protegidos com um erro acionável.
 

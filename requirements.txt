@@ -4,3 +4,4 @@ pypdf
 python-docx
 spacy
 pytest
+tdd-guard-pytest

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import re
 from pathlib import Path
 
 from docx import Document as DocxDocument
@@ -21,6 +22,10 @@ class EntradaMulticanalError(Exception):
 
 class PdfInputError(EntradaMulticanalError):
     """Erro de entrada de PDF."""
+
+
+class PromptInjectionDetectedError(PdfInputError):
+    """Indica que o texto do PDF contem instrucoes potencialmente injetadas."""
 
 
 class DocxExtractionError(EntradaMulticanalError):
@@ -51,9 +56,12 @@ class DocumentoOrigem(BaseModel):
 
 
 def extrair_documento_pdf(caminho: str | Path) -> DocumentoOrigem:
-    """Adapta a extração existente de PDF para o contrato de entrada multicanal."""
+    """Valida e extrai um PDF para o contrato de entrada multicanal."""
     input_path = Path(caminho)
+    if input_path.is_file():
+        _validar_arquivo_pdf(input_path)
     texto = extract_pdf_text(input_path)
+    _bloquear_prompt_injetado(texto)
     try:
         tamanho_bytes = input_path.stat().st_size
     except FileNotFoundError:
@@ -64,6 +72,27 @@ def extrair_documento_pdf(caminho: str | Path) -> DocumentoOrigem:
         identificador_origem=str(input_path),
         tamanho_bytes=tamanho_bytes,
     )
+
+
+def _validar_arquivo_pdf(caminho: Path) -> None:
+    if caminho.stat().st_size > MAX_DOCUMENT_SIZE_BYTES:
+        raise PdfInputError("O arquivo PDF excede o limite de tamanho permitido.")
+    with caminho.open("rb") as arquivo:
+        if arquivo.read(5) != b"%PDF-":
+            raise PdfInputError("O arquivo informado nao possui formato PDF compativel.")
+
+
+def _bloquear_prompt_injetado(texto: str) -> None:
+    padroes = (
+        r"ignore\s+(?:as\s+)?(?:previous|prior|above)\s+instructions",
+        r"desconsidere\s+(?:as\s+)?instru(?:c|ç)ões\s+(?:anteriores|acima)",
+        r"(?:reveal|show|print)\s+(?:the\s+)?system\s+prompt",
+        r"jailbreak\b",
+    )
+    if any(re.search(padrao, texto, flags=re.IGNORECASE) for padrao in padroes):
+        raise PromptInjectionDetectedError(
+            "O processamento foi interrompido: o PDF contem instrucoes potencialmente injetadas."
+        )
 
 
 def extrair_documento_docx(caminho: str | Path, *, max_size_bytes: int = MAX_DOCUMENT_SIZE_BYTES) -> DocumentoOrigem:
