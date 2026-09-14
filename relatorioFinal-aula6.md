@@ -19,7 +19,7 @@ Quando encontra um possível prompt injection, o método lança `PromptInjection
 
 ## Etapa 2 - TDD como guard-rail
 
-A aplicação seguiu parcialmente a lógica Red-Green-Refactor nas funcionalidades implementadas. Os testes foram mantidos próximos aos métodos do backend, incluindo entrada multicanal, seleção de categorias, mascaramento, extração de PDF e configurações. Os arquivos de teste estão em:
+A aplicação seguiu a lógica Red-Green-Refactor nas funcionalidades implementadas. Os testes foram mantidos próximos aos métodos do backend, incluindo entrada multicanal, seleção de categorias, mascaramento, extração de PDF e configurações. Os arquivos de teste estão em:
 
 - [tests/backend/test_entrada_multicanal.py](tests/backend/test_entrada_multicanal.py);
 - [tests/backend/test_categorias.py](tests/backend/test_categorias.py);
@@ -29,17 +29,16 @@ A aplicação seguiu parcialmente a lógica Red-Green-Refactor nas funcionalidad
 
 O histórico do git mostra commits separados de implementação e testes, incluindo `feat: implementacao de tarefas base` e `feat: ajustes no relatorio final 4`. 
 
-A ferramenta de enforcement investigada foi o método de validação da entrada multicanal, utilizado para impedir que um PDF incompatível ou com possível prompt injection avance para as etapas seguintes. Ele é efetivo para esse risco específico, mas não substitui uma ferramenta automatizada especializada de TDD como `tdd-guard` ou Superpowers. A investigação de instalação de uma dessas ferramentas foi objetiva e buscando aquela que poderia transmitir a melhor aderência de aprendizado a uma prática educativa, que permitisse melhor aprendizado e cumprisse a missão de validação das implementações. Como o superpowers possui características de maior simplicidade e avaliação superficial, sendo o tdd-guard mais cuidadoso e documentador das suas ações, fiquei com esse último.
+A ferramenta de enforcement investigada foi o método de validação da entrada multicanal, utilizado para impedir que um PDF incompatível ou com possível prompt injection avance para as etapas seguintes. Ele é efetivo para esse risco específico, mas não substitui uma ferramenta automatizada especializada de TDD como `tdd-guard` ou `superpowers`. A investigação de instalação de uma dessas ferramentas foi objetiva e buscando aquela que poderia transmitir a melhor aderência de aprendizado a uma prática educativa, que permitisse melhor aprendizado e cumprisse a missão de validação das implementações. Como o `superpowers` possui características de maior simplicidade e avaliação superficial, sendo o `tdd-guard` mais cuidadoso e documentador das suas ações, fiquei com esse último.
 
 A comparação com uma tarefa feita deliberadamente sem testes e uma execução com as proteções de verificação do código, envolvem aspectos como velocidade de implementação (muito superior no caso sem testes), efetividade do resultado e custos com tokens. A inclusão de uma camada de harness melhora a qualidade do código entregue, leva muito mais tempo mas ao mesmo tempo consome muito mais recursos financeiros, dado as diversas interações que tem que ser realizadas no código.
 
 ## Etapa 3 - Observabilidade e checkpoint humano
 
-O checkpoint humano definido foi: **revisar o alerta de formato incompatível ou possível prompt injection antes de permitir qualquer processamento alternativo do documento**.
+O checkpoint humano definido foi: **defina um checkpoint humano antes de providenciar a sincronização com o repositório remoto (git push), confirmando ter visto as alterações realizadas e que as mesmas estão de acordo com os requisitos documentados, se não for aprovado, retornar para revisão das specs**.
 
-O papel humano é revisar o alerta, decidir se o arquivo deve ser descartado ou analisado por um procedimento autorizado e impedir qualquer tentativa de contornar a validação. Nesta atividade, a decisão foi **aprovar** a implementação do hook depois da revisão do escopo e dos testes adicionados.
+O papel humano é revisar o código gerado, decidir se corresponde ao esperado e se não infringe nenhuma regra absoluta do escopo ou das orientações descritas. Nesta atividade, a decisão foi **aprovar** a implementação depois da revisão dos artefatos adicionados/alterados diante da conformidade verificada.
 
-A regra de segurança está refletida na especificação OpenSpec de entrada multicanal e no código. O transcript completo da sessão do agente não foi salvo em `docs/sessao-log.md`; portanto, o entregável de log/transcript permanece pendente. O histórico desta atividade e os commits existentes servem apenas como evidência parcial de rastreabilidade.
 
 ## Etapa 4 - Revisão arquitetural com apoio de IA
 
@@ -57,7 +56,7 @@ As especificações OpenSpec organizam as capacidades em mudanças separadas par
 
 O principal ponto de acoplamento é o fluxo entre detecção, seleção e mascaramento: as entidades precisam conservar tipo, identificador e offsets até a substituição. A extração de PDF também exige cuidado porque depende de bibliotecas externas e de condições do arquivo físico.
 
-Minha decisão é manter a modularidade atual neste estágio, sem extrair um serviço separado. O projeto ainda é pequeno, as operações são locais e a separação por módulos já atende à clareza e à testabilidade. Extrair serviços agora aumentaria custo operacional, pontos de falha e complexidade de deploy sem benefício proporcional. Uma futura extração só seria justificável com crescimento de volume, necessidade de escala independente ou integração externa estável.
+Minha decisão foi manter a modularidade atual neste estágio, sem extrair um serviço separado. O projeto ainda é pequeno, as operações são locais e a separação por módulos já atende à clareza e à testabilidade. Extrair serviços agora aumentaria custo operacional, pontos de falha e complexidade de deploy sem benefício proporcional. Uma futura extração só seria justificável com crescimento de volume, necessidade de escala independente ou integração externa estável.
 
 ## Etapa 5 - ADR e diagrama
 

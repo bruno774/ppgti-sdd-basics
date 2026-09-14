@@ -2,7 +2,7 @@
 
 - **Status:** proposta
 - **Data:** 2026-08-24
-- **Decisores:** equipe do projeto
+- **Decisores:** Bruno Silva
 
 > **Nota:** o escopo de entrada e o formato do marcador de pseudo-anonimização descritos aqui foram ampliados/alterados pela [ADR 0002](0002-ampliar-escopo-docx-extensao-auditoria.md) (DOCX, texto/clipboard, extensão de navegador, marcadores `prefixo+indice` e auditoria).
 

@@ -2,7 +2,7 @@
 
 - **Status:** aceita
 - **Data:** 2026-09-03
-- **Decisores:** equipe do projeto
+- **Decisores:** Bruno Silva
 
 ## Contexto
 
