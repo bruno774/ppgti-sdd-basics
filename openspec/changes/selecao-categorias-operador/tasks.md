@@ -15,8 +15,8 @@
 
 ## 3. Integração com detecção e mascaramento
 
-- [ ] 3.1 Conectar `categorias_selecionadas` à etapa de mascaramento existente, garantindo que apenas os tipos selecionados sejam substituídos, e verificar com teste de integração que categorias não selecionadas permanecem inalteradas na saída
-- [ ] 3.2 Garantir que a numeração dos marcadores (`prefixo+índice`) considera somente as categorias selecionadas na execução corrente e verificar com teste que nenhum índice é "reservado" para tipos não selecionados
+- [x] 3.1 Conectar `categorias_selecionadas` à etapa de mascaramento existente, garantindo que apenas os tipos selecionados sejam substituídos, e verificar com teste de integração que categorias não selecionadas permanecem inalteradas na saída
+- [x] 3.2 Garantir que a numeração dos marcadores (`prefixo+índice`) considera somente as categorias selecionadas na execução corrente e verificar com teste que nenhum índice é "reservado" para tipos não selecionados
 
 ## 4. Repetição do processamento sobre o texto de origem
 
